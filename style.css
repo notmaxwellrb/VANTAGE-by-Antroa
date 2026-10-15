@@ -13,8 +13,9 @@
 [data-tone="4"]{--tone:#ee5f8f}[data-tone="5"]{--tone:#4fc3d4}[data-tone="6"]{--tone:#e6b24a}[data-tone="7"]{--tone:#8ea2ff}
 
 *{box-sizing:border-box;margin:0;padding:0;border-radius:0}
-html{scroll-behavior:smooth;background:var(--bg)}
-body{font-family:var(--body);background:var(--bg);color:var(--bone);min-height:100vh;display:flex;flex-direction:column}
+html{scroll-behavior:smooth;background:var(--bg);-webkit-text-size-adjust:100%}
+img,svg{max-width:100%}
+body{font-family:var(--body);background:var(--bg);color:var(--bone);min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;overflow-x:clip}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 a{color:inherit}
@@ -23,9 +24,8 @@ a{color:inherit}
 /* Navbar: orange street rule, then a thin white rule underneath */
 .navbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:8px clamp(16px,3vw,32px);background:#000;border-bottom:3px solid var(--spark);
-  box-shadow:0 6px 0 #000,0 7px 0 var(--bone)}
-.navbar::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:1px;
-  background:repeating-linear-gradient(90deg,#000 0 3px,transparent 3px 6px)}
+  }
+.navbar::after{content:"";position:absolute;left:0;right:0;top:100%;margin-top:7px;border-top:1px dotted var(--bone);pointer-events:none}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand svg{display:block;height:34px;width:auto}
 .brand::after{content:"by antroa";font:700 11px var(--body);color:var(--bone);
@@ -36,8 +36,8 @@ a{color:inherit}
 .nav-links .nav-btn{border:1px solid var(--bone)}
 .nav-links .nav-btn:hover{background:var(--bone);color:#000}
 
-.hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;padding:clamp(28px,6vw,64px) 20px clamp(28px,5vw,48px)}
-.hero-logo{width:min(760px,92%);height:auto;display:block}
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;padding:clamp(20px,4vw,44px) 20px clamp(20px,3vw,32px)}
+.hero-logo{width:auto;max-width:min(760px,92%);max-height:min(38vh,380px);height:auto;display:block}
 .hero-copy{max-width:44ch;font-size:17px;line-height:1.5;color:var(--muted);
   padding:14px 0;border-block:1px dotted var(--spark)}
 .go-btn{display:inline-block;padding:12px 40px;font:700 17px var(--body);text-decoration:none;color:#fff;
@@ -81,18 +81,22 @@ a{color:inherit}
 .card:hover .buy{background:#2b8f3e}
 .card:hover{border-color:var(--tone,var(--spark));border-left-width:4px}
 
-.footer{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 0;padding:18px 20px 26px;
+.footer{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 22px;padding:18px 20px 26px;
   border-top:1px dotted var(--spark);font-size:13px}
-.footer>*+*{margin-left:14px;padding-left:14px;border-left:1px dotted var(--line)}
 .footer a{color:var(--muted);text-decoration:none}.footer a:hover{color:var(--spark);text-decoration:underline dotted;text-underline-offset:3px}
 .footer-brand{font:18px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--bone)}
 .footer a:last-child{color:var(--spark);font-weight:700}
 
+@media (max-width:760px){.brand::after{display:none}}
 @media (max-width:560px){
-  .brand svg{height:26px}.brand::after{display:none}
+  .navbar{gap:8px;padding:8px 12px}
+  .brand svg{height:26px}
   .nav-links a{padding:5px 7px;font-size:12px}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .card-foot{flex-direction:column;align-items:stretch}.buy{text-align:center}
   .box-head{font-size:22px}
-  .box{box-shadow:4px 4px 0 var(--spark-strong)}
+  .box{box-shadow:3px 3px 0 var(--spark-strong)}
+  .hero{gap:14px}.hero-copy{font-size:15px}
+  .go-btn{padding:11px 28px}
+  .tape span{font-size:16px;padding:7px 20px}
 }
