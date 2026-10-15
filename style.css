@@ -13,7 +13,7 @@
 [data-tone="4"]{--tone:#ee5f8f}[data-tone="5"]{--tone:#4fc3d4}[data-tone="6"]{--tone:#e6b24a}[data-tone="7"]{--tone:#8ea2ff}
 
 *{box-sizing:border-box;margin:0;padding:0;border-radius:0}
-html{scroll-behavior:smooth;background:var(--bg);-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;background:var(--bg);-webkit-text-size-adjust:100%;overflow-x:hidden}
 img,svg{max-width:100%}
 body{font-family:var(--body);background:var(--bg);color:var(--bone);min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;overflow-x:clip}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;
@@ -46,7 +46,7 @@ a{color:inherit}
 .go-btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--bone)}
 
 /* Hazard tape: the one moving thing on the page */
-.tape{overflow:hidden;background:var(--spark);color:#000;transform:rotate(-1.2deg);margin:6px -2vw 26px;
+.tape{overflow:hidden;background:var(--spark);color:#000;transform:rotate(-1.2deg);margin:6px 0 26px;max-width:100%;
   border-block:3px solid #000;box-shadow:0 0 0 2px var(--spark)}
 .tape-track{display:flex;width:max-content;animation:tape 32s linear infinite}
 .tape span{font:20px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;padding:9px 28px;white-space:nowrap}
