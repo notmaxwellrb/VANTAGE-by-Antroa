@@ -1,12 +1,11 @@
 /* Vantage: street on top, antroa underneath.
-   Antroa DNA kept: square corners, header-strip boxes, dotted rules, Tahoma body,
-   antroa blue for links + strips, green action buttons. Street kept: black, grain, Anton, hazard tape. */
+   Antroa DNA: orange / black / white, square corners, orange header-strip boxes, dotted rules, Tahoma body.
+   Street: grain, Anton, hazard tape. */
 :root{
   --bg:#000; --panel:#101010; --panel-2:#181818; --line:#3a3a3a; --line-soft:#262626;
   --bone:#f2efe6; --muted:#9a968c;
   --spark:#ff7a1a; --spark-strong:#c2621a;
   --go:#2f9e44; --go-strong:#23803a;
-  --antroa:#467ab8; --antroa-deep:#2c4f7c; --antroa-lite:#8fb4e3;
   --display:Anton,Impact,"Arial Narrow Bold",sans-serif;
   --body:Tahoma,"Trebuchet MS",Arial,sans-serif;
 }
@@ -19,28 +18,28 @@ body{font-family:var(--body);background:var(--bg);color:var(--bone);min-height:1
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--antroa-lite);outline-offset:2px}
+:focus-visible{outline:2px solid var(--spark);outline-offset:2px}
 
-/* Navbar: orange street rule, then antroa's dotted blue rule underneath */
+/* Navbar: orange street rule, then a thin white rule underneath */
 .navbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:8px clamp(16px,3vw,32px);background:#000;border-bottom:3px solid var(--spark);
-  box-shadow:0 6px 0 #000,0 7px 0 var(--antroa)}
+  box-shadow:0 6px 0 #000,0 7px 0 var(--bone)}
 .navbar::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:1px;
   background:repeating-linear-gradient(90deg,#000 0 3px,transparent 3px 6px)}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand svg{display:block;height:34px;width:auto}
-.brand::after{content:"by antroa";font:700 11px var(--body);color:var(--antroa-lite);
-  padding-left:12px;border-left:1px dotted var(--antroa)}
+.brand::after{content:"by antroa";font:700 11px var(--body);color:var(--bone);
+  padding-left:12px;border-left:1px dotted var(--spark)}
 .nav-links{display:flex;align-items:center;gap:6px}
 .nav-links a{font-size:13px;font-weight:700;text-decoration:none;color:var(--bone);padding:6px 10px;border-bottom:1px dotted transparent}
-.nav-links a:hover{color:var(--antroa-lite);border-bottom-color:var(--antroa-lite)}
-.nav-links .nav-btn{border:1px solid var(--antroa);background:var(--antroa-deep)}
-.nav-links .nav-btn:hover{background:var(--antroa);color:#fff;border-color:var(--antroa)}
+.nav-links a:hover{color:var(--spark);border-bottom-color:var(--spark)}
+.nav-links .nav-btn{border:1px solid var(--bone)}
+.nav-links .nav-btn:hover{background:var(--bone);color:#000}
 
 .hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;padding:clamp(28px,6vw,64px) 20px clamp(28px,5vw,48px)}
 .hero-logo{width:min(760px,92%);height:auto;display:block}
 .hero-copy{max-width:44ch;font-size:17px;line-height:1.5;color:var(--muted);
-  padding:14px 0;border-block:1px dotted var(--antroa)}
+  padding:14px 0;border-block:1px dotted var(--spark)}
 .go-btn{display:inline-block;padding:12px 40px;font:700 17px var(--body);text-decoration:none;color:#fff;
   background:var(--go);border:1px solid var(--go-strong);box-shadow:4px 4px 0 var(--bone)}
 .go-btn:hover{background:#2b8f3e}
@@ -57,17 +56,17 @@ a{color:inherit}
 
 .wrap{width:min(100%,1240px);margin:0 auto;padding:0 clamp(12px,3vw,32px) 48px;flex:1}
 
-/* Antroa box: blue header strip with an orange street rule under it */
-.box{background:var(--panel);border:1px solid var(--antroa-deep);box-shadow:6px 6px 0 #000,6px 6px 0 1px var(--line-soft)}
+/* Antroa box: orange header strip, black type, white rule under it */
+.box{background:var(--panel);border:1px solid var(--spark-strong);box-shadow:6px 6px 0 var(--spark-strong)}
 .box-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:9px 16px;
-  background:var(--antroa);color:#fff;border-bottom:3px solid var(--spark);
+  background:var(--spark);color:#000;border-bottom:3px solid var(--bone);
   font:26px/1.1 var(--display);letter-spacing:.04em;text-transform:uppercase}
-.box-head small{font:700 12px var(--body);letter-spacing:0;text-transform:none;color:#fff;opacity:.9}
+.box-head small{font:700 12px var(--body);letter-spacing:0;text-transform:none;color:#000}
 .box-body{padding:clamp(14px,2.4vw,24px)}
 .status{padding:24px 0;text-align:center;color:var(--muted);font-size:15px;line-height:1.6}
 .status:empty{display:none}
-.status a{color:var(--antroa-lite);font-weight:700;text-decoration:underline dotted;text-underline-offset:3px}
-.status a:hover{color:var(--spark)}
+.status a{color:var(--spark);font-weight:700;text-decoration:underline dotted;text-underline-offset:3px}
+.status a:hover{color:var(--bone)}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:clamp(14px,2vw,22px)}
 .card{display:flex;flex-direction:column;background:var(--panel-2);border:1px solid var(--line);border-left:4px solid var(--tone,var(--spark));text-decoration:none}
@@ -75,7 +74,7 @@ a{color:inherit}
   font-size:13px;font-weight:700;color:var(--tone,var(--spark));overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .card-photo{aspect-ratio:1/1;background:#fff;display:grid;place-items:center;overflow:hidden}
 .card-photo img{width:100%;height:100%;object-fit:contain;display:block}
-.card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border-top:1px dotted var(--antroa)}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border-top:1px dotted var(--spark)}
 .price{font:24px/1 var(--display);letter-spacing:.03em}
 .price small{display:block;margin-bottom:3px;font:11px var(--body);color:var(--muted);letter-spacing:0}
 .buy{padding:8px 16px;font:700 13px var(--body);color:#fff;background:var(--go);border:1px solid var(--go-strong)}
@@ -83,11 +82,11 @@ a{color:inherit}
 .card:hover{border-color:var(--tone,var(--spark));border-left-width:4px}
 
 .footer{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 0;padding:18px 20px 26px;
-  border-top:1px dotted var(--antroa);font-size:13px}
+  border-top:1px dotted var(--spark);font-size:13px}
 .footer>*+*{margin-left:14px;padding-left:14px;border-left:1px dotted var(--line)}
-.footer a{color:var(--muted);text-decoration:none}.footer a:hover{color:var(--antroa-lite);text-decoration:underline dotted;text-underline-offset:3px}
+.footer a{color:var(--muted);text-decoration:none}.footer a:hover{color:var(--spark);text-decoration:underline dotted;text-underline-offset:3px}
 .footer-brand{font:18px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--bone)}
-.footer a:last-child{color:var(--antroa-lite);font-weight:700}
+.footer a:last-child{color:var(--spark);font-weight:700}
 
 @media (max-width:560px){
   .brand svg{height:26px}.brand::after{display:none}
@@ -95,5 +94,5 @@ a{color:inherit}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .card-foot{flex-direction:column;align-items:stretch}.buy{text-align:center}
   .box-head{font-size:22px}
-  .box{box-shadow:4px 4px 0 #000}
+  .box{box-shadow:4px 4px 0 var(--spark-strong)}
 }
