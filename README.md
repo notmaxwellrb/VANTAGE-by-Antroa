@@ -24,3 +24,6 @@ functions/api/products.js   <- live product sync (server side)
 Quick Stores are Printful-hosted and the documented Products API targets "Manual order / API" stores.
 Open antroa.printful.me, DevTools > Network > Fetch/XHR, reload, find the request that returns your products as JSON,
 and set that URL as `SOURCE_JSON_URL` (and remove `PRINTFUL_TOKEN`). The function maps common field names automatically.
+
+## Refresh timing
+Products refresh every 12 hours. To update right now, set an env var `REFRESH_KEY` (any long random text) and open `/api/products?refresh=THAT_TEXT` once.

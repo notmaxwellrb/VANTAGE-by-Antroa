@@ -1,9 +1,9 @@
 // Cloudflare Pages Function: GET /api/products
-// Reads your live Printful products server-side (the token never reaches the browser) and caches for 2 minutes.
+// Reads your live Printful products server-side (the token never reaches the browser) and caches for 12 hours.
 // Add ?debug=1 to see which source answered and the exact error if something is wrong.
 
 const API = 'https://api.printful.com';
-const TTL = 120;
+const TTL = 43200; // 12 hours
 
 async function pf(path, env) {
   const headers = { Authorization: 'Bearer ' + env.PRINTFUL_TOKEN };
@@ -52,7 +52,8 @@ const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^
 export async function onRequestGet({ request, env, waitUntil }) {
   const url = new URL(request.url), debug = url.searchParams.has('debug');
   const cache = caches.default, key = new Request(url.origin + '/api/products');
-  if (!debug) { const hit = await cache.match(key); if (hit) return hit; }
+  const force = env.REFRESH_KEY && url.searchParams.get('refresh') === env.REFRESH_KEY;
+  if (!debug && !force) { const hit = await cache.match(key); if (hit) return hit; }
 
   const storeUrl = env.STORE_URL || 'https://antroa.printful.me/';
   const tpl = env.PRODUCT_URL_TEMPLATE; // e.g. https://antroa.printful.me/product/{slug}-{id}

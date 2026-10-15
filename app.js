@@ -1,4 +1,4 @@
-// Pulls the live product list from /api/products (a Cloudflare Pages Function that reads your Printful store).
+// Pulls the live product list from /api/products (a Cloudflare Pages Function that reads your Printful store, refreshed every 12 hours).
 (function () {
   var grid = document.getElementById('grid'), status = document.getElementById('status'), count = document.getElementById('count');
   var STORE = 'https://antroa.printful.me/';
@@ -41,6 +41,4 @@
   }
 
   load();
-  setInterval(load, 60000);
-  document.addEventListener('visibilitychange', function () { if (!document.hidden) load(); });
 })();
