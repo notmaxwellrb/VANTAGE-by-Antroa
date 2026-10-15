@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vantage | Streetwear</title>
+<meta name="description" content="Vantage streetwear. Printed on demand, shipped by Printful.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+  <a class="brand" href="/" aria-label="Vantage home">
+    <svg viewBox="0 0 220 44" role="img" aria-label="Vantage">
+      <defs><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".07" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="3.5"/></filter></defs>
+      <text x="0" y="38" font-family="Anton, Impact, sans-serif" font-size="44" letter-spacing="2" fill="#fff" filter="url(#rough)">VANTAGE</text>
+    </svg>
+  </a>
+  <nav class="nav-links">
+    <a href="#drop">Shop</a>
+    <a id="store-link" class="nav-btn" href="https://antroa.printful.me/" rel="noopener">Official store</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <img class="hero-logo" src="assets/vantage-logo.png" alt="Vantage" width="1088" height="604">
+  <p class="hero-copy">Streetwear printed on demand. Every piece below is live in the store right now.</p>
+  <a class="go-btn" href="#drop">Shop the drop</a>
+</section>
+
+<div class="tape" aria-hidden="true"><div class="tape-track">
+  <span>New pieces land here the second they go live</span><span>Printed and shipped by Printful</span>
+  <span>New pieces land here the second they go live</span><span>Printed and shipped by Printful</span>
+</div></div>
+
+<main id="drop" class="wrap">
+  <section class="box">
+    <h2 class="box-head">The drop <small id="count"></small></h2>
+    <div class="box-body">
+      <p id="status" class="status" role="status">Loading the drop...</p>
+      <div id="grid" class="grid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <span class="footer-brand">Vantage</span>
+  <a id="footer-store" href="https://antroa.printful.me/" rel="noopener">antroa.printful.me</a>
+  <a href="https://antroa.com" rel="noopener">A project by Antroa</a>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
